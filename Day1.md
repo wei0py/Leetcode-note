@@ -12,7 +12,7 @@ For a given input array this algorithm does the following steps:
   If present, return {required number index, current number index} as  result.  
   Otherwise add the current iteration number as key and its index as value to the hashmap. Repeat this  until you find the result.  
 Python could use a dict, and use ```if xxx in xx ```to justify whether 'target - i' is in the dict.  
-Java could use ```HashMap<Integer,Integer> indexMap = new HashMap<Integer,Integer>();``` ``` indexMap.put(numbers[i], i);  ```
+Java could use ```HashMap<Integer,Integer> indexMap = new HashMap<Integer,Integer>();``` ```indexMap.containsKey(a);``` ```indexMap.get(i);``` ``` indexMap.put(numbers[i], i);  ```
 Time Complexity: O(n)  
 Space Complexity: O(n)  
  
