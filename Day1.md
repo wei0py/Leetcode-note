@@ -16,3 +16,5 @@ Java could use ```HashMap<Integer,Integer> indexMap = new HashMap<Integer,Intege
 Time Complexity: O(n)  
 Space Complexity: O(n)  
  
+## Add Two Numbers
+add from the last one by one, larger than 10 record and add to the next;
