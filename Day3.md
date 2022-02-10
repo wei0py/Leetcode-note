@@ -28,3 +28,39 @@ class Solution {
     }
 }
 ```
+## Zigzag Conversion
+1. just consider a loop and append the corresponding the char in a row; loop = numRows * 2 -2;
+```java
+class Solution {
+    public String convert(String s, int numRows) {
+        int len = s.length();
+        int loop = numRows * 2 - 2;
+        if (loop == 0) {
+            return s;
+        }
+        StringBuffer result = new StringBuffer("");
+        int count = 0;
+        for (int i = 0; i < numRows; i++) {
+            count = 0;
+            StringBuffer chars = new StringBuffer("");
+            if (i == 0 || i == numRows - 1) {
+                while (count + i< len) {
+                    chars.append(s.charAt(count + i));
+                    count = count + loop;
+                }
+            } else {
+                while (count + loop - i < len) {
+                    chars.append(s.charAt(count + i));
+                    count = count + loop;
+                    chars.append(s.charAt(count - i));
+                }
+                if (count + i < len) {
+                    chars.append(s.charAt(count + i));
+                }
+            }
+            result.append(chars);
+        }
+        return result.toString();
+    }
+}
+```
