@@ -63,3 +63,18 @@ public int myAtoi(String str) {
 ```
 3.Deterministic Finite Automaton (DFA)  not familiar with.
 https://leetcode.com/problems/string-to-integer-atoi/Figures/8/Slide10.JPG![image](https://user-images.githubusercontent.com/35773174/153543789-72edabbe-1b7f-4fe1-b62d-3be18387f5fa.png)
+##  Palindrome Number
+1. could use python slice: s[::-1] is the reverse of s;
+2. If we first note that if x<0 return False, then it will be a little faster. using return str(s) == str(s)[::-1]  
+3. Java, another method
+```java
+public boolean isPalindrome(int x) {
+    if (x<0 || (x!=0 && x%10==0)) return false;
+    int rev = 0;
+    while (x>rev){
+    	rev = rev*10 + x%10;
+    	x = x/10;
+    }
+    return (x==rev || x==rev/10);
+}
+```
