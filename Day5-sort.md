@@ -6,9 +6,6 @@
 
 ## 56. Merge Intervals
 
-
-
-## 27. Remove elements
 1. python slow
 ```python
 class Solution:
@@ -42,3 +39,6 @@ class Solution:
 
         return out
 ```
+
+
+## 27. Remove elements
