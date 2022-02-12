@@ -147,10 +147,9 @@ set([1, 2, 3, 4])
 
 而不需要使用内置函数set()。
 
-回到顶部
-集合 (set) 与列表 (list)
+# 集合 (set) 与列表 (list)
 set 的 union， intersection，difference 操作要比 list 的迭代要快。因此如果涉及到求 list 交集，并集或者差的问题可以转换为 set 来操作。
-
+```
 set(list1) | set(list2)
 
 union
@@ -168,26 +167,25 @@ set(list1) - set(list2)
 difference
 
 在list1中出现但不在list2中出现的元素的集合
-
-回到顶部
-使用dict 和 set 测试成员
+```
+## 使用dict 和 set 测试成员
 Python dict中使用了 hash table，因此查找操作的复杂度为 O(1)，因此对成员的查找访问等操作字典要比 list 更快。
 
 检查一个元素是在dicitonary或set是否存在，这在Python中非常快的。这是因为dict和set使用哈希表来实现，查找效率可以达到O(1)，而 list 实际是个数组，在 list 中，查找需要遍历整个 list，其复杂度为 O(n)，因此，如果您需要经常检查成员，使用 set 或 dict做为你的容器。
-
+```
 >>> mylist = ['a', 'b', 'c'] #Slower, check membership with list: 
 >>> ‘c’ in mylist 
 >>> True 
 >>> myset = set(['a', 'b', 'c']) # Faster, check membership with set: 
 >>> ‘c’ in myset: 
 >>> True
+```
 
-回到顶部
-计数时使用Counter计数对象
+## 计数时使用Counter计数对象
 这听起来显而易见，但经常被人忘记。对于大多数程序员来说，数一个东西是一项很常见的任务，而且在大多数情况下并不是很有挑战性的事情——这里有几种方法能更简单的完成这种任务。
 
 Python的collections类库里有个内置的dict类的子类，是专门来干这种事情的：
-
+```python
 >>>from collections import Counter
 
 >>>c = Counter('hello world')
@@ -199,13 +197,12 @@ Counter({'l': 3, 'o': 2, ' ': 1, 'e': 1, 'd': 1, 'h': 1, 'r': 1, 'w': 1})
 >>>c.most_common(2)
 
 [('l', 3), ('o', 2)]
+```
 
-回到顶部
-使用xrange()处理长序列
+## 使用xrange()处理长序列
 这样可为你节省大量的系统内存，因为xrange()在序列中每次调用只产生一个整数元素。而相反 range()，它將直接给你一个完整的元素列表，用于循环时会有不必要的开销。
 
-回到顶部
-使用 Python generator
+## 使用 Python generator
 这也可以节省内存和提高性能。例如一个视频流，你可以一个一个字节块的发送，而不是整个流。例如：
 
 >>> chunk = ( 1000 * i for i in xrange(1000)) 
