@@ -9,7 +9,7 @@
 
 
 ## 27. Remove elements
-1. python 
+1. python slow
 ```python
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
@@ -26,3 +26,19 @@ class Solution:
                 i += 1;
         return interval2
 ```        
+2.
+```python
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        interval2 = sorted(intervals);
+        lenI = len(interval2);
+        out=[interval2[0]]
+        
+        for k in interval2[1:]:
+            if k[0] <= out[-1][1]:
+                out[-1][1] = max(k[1],out[-1][1])
+            else:
+                out.append(k)
+
+        return out
+```
