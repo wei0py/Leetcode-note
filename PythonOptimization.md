@@ -57,7 +57,7 @@ O(1) -> O(lg n) -> O(n lg n) -> O(n^2) -> O(n^3) -> O(n^k) -> O(k^n) -> O(n!)
 
 ## 使用join()连接字符串
 你可以使用 "+" 来连接字符串. 但由于string在Python中是不可变的,每一个"+"操作都会创建一个新的字符串并复制旧内容. 常见用法是使用Python的数组模块单个的修改字符;当完成的时候,使用 join() 函数创建最终字符串.
-```
+```python
 >>> #This is good to glue a large number of strings 
 >>> for chunk in input(): 
 >>> my_string.join(chunk)
@@ -65,38 +65,36 @@ O(1) -> O(lg n) -> O(n lg n) -> O(n^2) -> O(n^3) -> O(n^k) -> O(k^n) -> O(n!)
 
 ## 使用Python多重赋值，交换变量
 在Python中即优雅又快速: 
+```python
 >>> x, y = y, x 
 这样很慢: 
 >>> temp = x 
 >>> x = y 
 >>> y = temp
-
+```
 ## 尽量使用局部变量
 Python 检索局部变量比检索全局变量快. 这意味着,避免 "global" 关键字.
 
-回到顶部
-尽量使用 "in"
-使用 "in" 关键字. 简洁而快速.
 
+## 尽量使用 "in"
+使用 "in" 关键字. 简洁而快速.
+```python
 >>> for key in sequence: 
 >>> print “found”
+```
 
-回到顶部
-使用延迟加载加速
+## 使用延迟加载加速
 將 "import" 声明移入函数中,仅在需要的时候导入. 换句话说,如果某些模块不需马上使用,稍后导入他们. 例如,你不必在一开使就导入大量模块而加速程序启动. 该技术不能提高整体性能. 但它可以帮助你更均衡的分配模块的加载时间.
 
-回到顶部
-为无限循环使用 "while 1"
+## 为无限循环使用 "while 1"
 有时候在程序中你需一个无限循环.(例如一个监听套接字的实例) 尽管 "while true" 能完成同样的事, 但 "while 1" 是单步运算. 这招能提高你的Python性能.
 
-回到顶部
-使用 Lazy if-evaluation 的特性
+## 使用 Lazy if-evaluation 的特性
 Python 中条件表达式是 lazy evaluation 的，也就是说如果存在条件表达式 if x and y，在 x 为 false 的情况下 y 表达式的值将不再计算。因此可以利用该特性在一定程度上提高程序效率。
 
-回到顶部
-使用list comprehension和generator expression
+## 使用list comprehension和generator expression
 从Python 2.0 开始,你可以使用 list comprehension 取代大量的 "for" 和 "while" 块. 使用List comprehension通常更快，Python解析器能在循环中发现它是一个可预测的模式而被优化.额外好处是，list comprehension更具可读性（函数式编程），并在大多数情况下，它可以节省一个额外的计数变量。列表解析要比在循环中重新构建一个新的 list 更为高效，因此我们可以利用这一特性来提高运行的效率。例如，让我们计算1到10之间的偶数个数：
-
+```python
 >>> # the good way to iterate a range 
 >>> evens = [ i for i in range(10) if i%2 == 0] 
 >>> [0, 2, 4, 6, 8] 
@@ -107,13 +105,12 @@ Python 中条件表达式是 lazy evaluation 的，也就是说如果存在条�
 >>> if i %2 == 0: evens.append(i) 
 >>> i += 1 
 >>> [0, 2, 4, 6, 8]
-
+```
 生成器表达式则是在 2.4 中引入的新内容，语法和列表解析类似，但是在大数据量处理时，生成器表达式的优势较为明显，它并不创建一个列表，只是返回一个生成器，因此效率较高。例如：代码 a = [w for w in list] 修改为 a = (w for w in list)，运行时间进一步减少，缩短约为 2.98s。
 
-回到顶部
-使用Dictionary comprehensions/Set comprehensions
+## 使用Dictionary comprehensions/Set comprehensions
 大多数的Python程序员都知道且使用过列表推导(list comprehensions)。如果你对list comprehensions概念不是很熟悉——一个list comprehension就是一个更简短、简洁的创建一个list的方法。
-
+```python
 >>> some_list = [1, 2, 3, 4, 5]
 
 >>> another_list = [x + 1 for x in some_list]
@@ -122,7 +119,7 @@ Python 中条件表达式是 lazy evaluation 的，也就是说如果存在条�
 
 >>> [2, 3, 4, 5, 6]
 
-自从python 3.1 (甚至是Python 2.7)起，我们可以用同样的语法来创建集合和字典表：
+#自从python 3.1 (甚至是Python 2.7)起，我们可以用同样的语法来创建集合和字典表：
 
 >>>#Se Comprehensions
 
@@ -137,7 +134,7 @@ Python 中条件表达式是 lazy evaluation 的，也就是说如果存在条�
 >>> d = {x: x % 2 == 0 for x in range(1, 11)}
 
 >>> d {1: False, 2: True, 3: False, 4: True, 5: False, 6: True, 7: False, 8: True, 9: False, 10: True}
-
+```
 在第一个例子里，我们以some_list为基础，创建了一个具有不重复元素的集合，而且集合里只包含偶数。而在字典表的例子里，我们创建了一个key是不重复的1到10之间的整数，value是布尔型，用来指示key是否是偶数。
 
 这里另外一个值得注意的事情是集合的字面量表示法。我们可以简单的用这种方法创建一个集合：
