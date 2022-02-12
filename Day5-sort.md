@@ -40,5 +40,30 @@ class Solution:
         return out
 ```
 
+## 75. Sort Colors
+1. slow
+```python
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        in1 = nums.count(0)
+        in2 = nums.count(1)
+        in3 = nums.count(2)
+    
+        nums[0:in1] =[0 for i in range(in1)]
+        nums[in1:(in1+in2)] = [1 for i in range(in2)]
+        nums[(in1+in2):] =[2 for i in range(in3)] 
+
+
+```
+
+
+
+
+
+
+
 
 ## 27. Remove elements
