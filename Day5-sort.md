@@ -58,7 +58,27 @@ class Solution:
 
 
 ```
-
+2. faster
+```python
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        in1 = 0
+        in2 = 0
+        in3 = len(nums) -1
+        while(in2 <= in3): 
+            if nums[in2] ==0:
+                nums[in2], nums[in1] = nums[in1], nums[in2]
+                in1+=1
+                in2 +=1
+            elif nums[in2] ==1:
+                in2 +=1
+            else: 
+                nums[in3], nums[in2] = nums[in2], nums[in3]
+                in3 -=1
+```
 
 
 
