@@ -20,7 +20,7 @@ class Solution:
             else:
                 return False
         return stack == []
-
+```
 
 ### Leetcode 1472. Design Browser History
 ### Leetcode 1209. Remove All Adjacent Duplicates in String II
