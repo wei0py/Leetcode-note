@@ -3,6 +3,7 @@
 ### Leetcode 716 Max Stack)
 ### Leetcode 232. Implement Queue using Stacks
 ### Leetcode 150. Evaluate Reverse Polish Notation
+Using stack, and when considering the operation, we can deal with them separately, or using eval, or using operator.
 ```python
 import operator
 class Solution:
