@@ -3,6 +3,28 @@
 ### Leetcode 716 Max Stack)
 ### Leetcode 232. Implement Queue using Stacks
 ### Leetcode 150. Evaluate Reverse Polish Notation
+```python
+import operator
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        ops = {
+    '+' : operator.add,
+    '-' : operator.sub,
+    '*' : operator.mul,
+    '/' : operator.truediv,
+}
+        stack = []
+        output = 0
+        for i in tokens:
+            if i not in ops.keys():
+                stack.append(int(i))
+            else:
+                a = stack.pop()
+                b = stack.pop()
+                c = int(ops[i](b,a))
+                stack.append(c)
+        return stack[0]
+```
 ### Leetcode 224. Basic Calculator II (I, II, III, IV)
 ### Leetcode 20. Valid Parentheses
 ```python
