@@ -1,4 +1,10 @@
-## Day 8
+## Day 8 Stack
+
+Stack in Python:
+- A stack is a linear data structure that stores items in a Last-In/First-Out (LIFO) or First-In/Last-Out (FILO) manner. In stack, a new element is added at one end and an element is removed from that end only. The insert and delete operations are often called push and pop.
+- There are various ways from which a stack can be implemented in Python. 1. list 2. Collections.deque 3. queue.LifoQueue
+- Python stack can be implemented using the deque class from the collections module. Deque is preferred over the list in the cases where we need quicker append and pop operations from both the ends of the container, as deque provides an O(1) time complexity for append and pop operations as compared to list which provides O(n) time complexity. 
+
 ### Leetcode 155. Min Stack (follow up
 ### Leetcode 716 Max Stack)
 ### Leetcode 232. Implement Queue using Stacks
