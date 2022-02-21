@@ -5,6 +5,18 @@
 ## Leetcode 73. Set Matrix Zeroes
 ## Leetcode 380. Insert Delete GetRandom O(1)
 ## Leetcode 49. Group Anagrams
+```python
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        dict1 = {}
+        for s in strs:
+            sortedword = "".join(sorted(s))
+            if sortedword in dict1.keys():
+                dict1[sortedword].append(s)
+            else:
+                dict1[sortedword]= [s]
+        return list(dict1.values())
+```
 ## Leetcode 350. Intersection of Two Arrays II
 ## Leetcode 299. Bulls and Cows
 ## Leetcode 348 Design Tic-Tac-Toe
