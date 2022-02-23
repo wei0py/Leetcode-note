@@ -26,7 +26,7 @@ class Solution(object):
             for j in range(C):
                 if i in rows or j in cols:
                     matrix[i][j] = 0
-
+```
 
 ## Leetcode 380. Insert Delete GetRandom O(1)
 ## Leetcode 49. Group Anagrams
