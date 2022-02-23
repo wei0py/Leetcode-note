@@ -2,6 +2,30 @@
 ## Leetcode 1. Two Sum
 ## Leetcode 146. LRU Cache (Python中可以使用OrderedDict来代替)
 ## Leetcode 128. Longest Consecutive Sequence
+```python
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        nums2 = sorted(nums)
+        length = len(nums2)
+        if (length ==0):
+            return 0
+        dict1 = set()
+        max1 = 1
+        i = 0
+        while i < length - 1:
+            if nums2[i+1] == nums2[i] + 1:
+                max1 += 1
+                i += 1
+            elif nums2[i+1] == nums2[i]:
+                i += 1
+                continue
+            else:
+                dict1.add(max1)
+                max1 = 1
+                i += 1
+        dict1.add(max1)
+        return max(dict1)
+```
 ## Leetcode 73. Set Matrix Zeroes
 ```python
 class Solution(object):
