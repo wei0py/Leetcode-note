@@ -1,6 +1,60 @@
 # Hashmap/ Hashset题目：
 ## Leetcode 1. Two Sum
 ## Leetcode 146. LRU Cache (Python中可以使用OrderedDict来代替)
+```python
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.cap = capacity
+        self.used = collections.deque()
+        self.cache = {}
+
+    def get(self, key: int) -> int:
+        if key in self.cache.keys():
+            self.used.remove(key)
+            self.used.append(key)
+            return self.cache[key]
+        else:
+            return -1
+        
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.cache.keys():
+            self.cache[key] = value
+            self.used.remove(key)
+            self.used.append(key)
+        elif len(self.cache) < self.cap:
+            self.cache[key] = value
+            self.used.append(key)
+        else:
+            del self.cache[self.used.popleft()]
+            self.cache[key] = value
+            self.used.append(key)
+```
+
+orderedDict
+```python
+from collections import OrderedDict
+
+class LRUCache:
+    def __init__(self, capacity: int):
+        self.cap = capacity
+        self.dict = OrderedDict()
+
+    def get(self, key: int) -> int:
+        if key not in self.dict:
+            return -1
+        self.dict.move_to_end(key)
+        return self.dict[key]
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.dict:
+            self.dict.pop(key)
+            
+        self.dict[key] = value
+        if len(self.dict) > self.cap:
+            self.dict.popitem(last=False) 
+```
 ## Leetcode 128. Longest Consecutive Sequence
 ```python
 class Solution:
