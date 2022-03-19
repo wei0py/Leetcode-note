@@ -14,6 +14,27 @@
         Leetcode 454. 4Sum II
         Leetcode 277. Find the Celebrity
         Leetcode 11. Container With Most Water
+        ```python
+        class Solution:
+        def maxArea(self, height: List[int]) -> int:
+            i = 0;
+            j = len(height) - 1
+            if (i==j):
+                return 0
+            elif (j-i == 1):
+                return (j - i) * min(height[i], height[j])
+            maxV = 0
+            while (i < j):
+                maxV = max((j - i) * min(height[i], height[j]), maxV)
+                if (height[i] < height[j]):
+                    i += 1;
+                elif (height[i] > height[j]):
+                    j -= 1;
+                else:
+                    i += 1;
+                    j -= 1;
+            return maxV
+        ```
     同向双指针：
         Leetcode 283. Move Zeroes
         Leetcode 26. Remove Duplicate Numbers in Array
