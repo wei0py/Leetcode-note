@@ -5,6 +5,39 @@
      多数情况下时间复杂度空间复杂度都是O（N+M），N为节点个数，M为边的个数
      基于树的BFS：不需要专门一个set来记录访问过的节点
         Leetcode 102 Binary Tree Level Order Traversal
+        ```
+  class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if root == None:
+            return []
+        result = []
+        add = [root]
+        result.append([root.val])
+        flag = True
+        while True:
+            add, flag = self.tranverse(add)
+            if not flag:
+                break
+            result.append([a.val for a in add])
+        return result
+            
+    def tranverse(self, li):
+        add = []
+        flag = False
+        for node in li:
+            if (node.left != None):
+                flag = True
+                add.append(node.left)
+            if (node.right != None):
+                flag = True
+                add.append(node.right)
+        return add, flag
+        ```
+        DFS:
+        ```
+        
+        ```
+        
         Leetcode 103 Binary Tree Zigzag Level Order Traversal
         Leetcode 297 Serialize and Deserialize Binary Tree （很好的BFS和双指针结合的题）
         Leetcode 314 Binary Tree Vertical Order Traversal
